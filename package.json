@@ -1,0 +1,47 @@
+{
+  "name": "@ajeshab/react-pdf-editor",
+  "version": "1.0.0",
+  "main": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "scripts": {
+    "build": "tsup",
+    "lint": "tsc",
+    "dev": "tsup --watch",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build"
+  },
+  "keywords": [],
+  "author": "Ajesh AB",
+  "license": "ISC",
+  "description": "",
+  "devDependencies": {
+    "@storybook/addon-essentials": "^8.4.2",
+    "@storybook/addon-interactions": "^8.4.2",
+    "@storybook/addon-onboarding": "^8.4.2",
+    "@storybook/blocks": "^8.4.2",
+    "@storybook/react": "^8.4.2",
+    "@storybook/react-vite": "^8.4.2",
+    "@storybook/test": "^8.4.2",
+    "@types/pdfjs-dist": "^2.10.377",
+    "gh-pages": "^6.2.0",
+    "storybook": "^8.4.2",
+    "tsup": "^8.3.5",
+    "typescript": "^5.6.3"
+  },
+  "dependencies": {
+    "@types/downloadjs": "^1.4.6",
+    "@types/node": "^22.9.0",
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "downloadjs": "^1.4.7",
+    "konva": "^9.3.16",
+    "pdf-lib": "^1.17.1",
+    "pdfjs-dist": "^4.8.69",
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "react-rnd": "^10.4.13",
+    "react-signature-pad-wrapper": "^4.0.4",
+    "styled-components": "^6.1.13",
+    "use-resize-observer": "^9.1.0"
+  }
+}

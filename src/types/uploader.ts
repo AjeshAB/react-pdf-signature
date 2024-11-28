@@ -1,0 +1,1 @@
+export type ActionEvent<T> = React.TouchEvent<T> | React.MouseEvent<T>;
