@@ -1,5 +1,6 @@
 {
   "name": "@ajeshab/react-pdf-editor",
+  "homepage": "http://AjeshAB.github.io/react-pdf-signature",
   "version": "1.0.0",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
@@ -8,7 +9,9 @@
     "lint": "tsc",
     "dev": "tsup --watch",
     "storybook": "storybook dev -p 6006",
-    "build-storybook": "storybook build"
+    "build-storybook": "storybook build",
+    "predeploy": "npm run build-storybook",
+    "deploy-storybook": "gh-pages -d storybook-static"
   },
   "keywords": [],
   "author": "Ajesh AB",
