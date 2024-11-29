@@ -1,9 +1,12 @@
 {
-  "name": "@ajeshab/react-pdf-editor",
+  "name": "@ajeshab/react-pdf-signer",
   "homepage": "http://AjeshAB.github.io/react-pdf-signature",
-  "version": "1.0.2",
+  "version": "1.0.1",
   "main": "./dist/index.js",
   "types": "./dist/index.d.ts",
+  "repository": {
+    "url": "https://github.com/AjeshAB/react-pdf-signature.git"
+  },
   "scripts": {
     "build": "tsup",
     "lint": "tsc",
@@ -11,7 +14,8 @@
     "storybook": "storybook dev -p 6006",
     "build-storybook": "storybook build",
     "predeploy": "npm run build-storybook",
-    "deploy-storybook": "gh-pages -d storybook-static"
+    "deploy-storybook": "gh-pages -d storybook-static",
+    "pre-publish": "npm run build && npm run build-storybook && npm run deploy-storybook && npm publish --access public"
   },
   "keywords": [],
   "author": "Ajesh AB",
@@ -37,7 +41,6 @@
     "@types/react": "^18.3.12",
     "@types/react-dom": "^18.3.1",
     "downloadjs": "^1.4.7",
-    "konva": "^9.3.16",
     "pdf-lib": "^1.17.1",
     "pdfjs-dist": "^4.8.69",
     "react": "^18.3.1",
