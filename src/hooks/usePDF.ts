@@ -4,13 +4,15 @@ import { Dimensions } from '../types/pdf'
 import { PDFPageProxy } from 'pdfjs-dist'
 import { Attachments } from '../types/attachments'
 import { save } from '../utils/pdf'
+import { PdfEditorProps } from '../types'
 
 export interface Pdf {
   name: string
   pages: Promise<PDFPageProxy>[]
 }
 
-export const usePdf = () => {
+export const usePdf = (props: PdfEditorProps) => {
+  const { enableDownload, onSave } = props
   const [name, setName] = useState('')
   const [pageIndex, setPageIndex] = useState(-1)
   const [dimensions, setDimensions] = useState<Dimensions>()
@@ -54,7 +56,7 @@ export const usePdf = () => {
     setIsSaving(true)
 
     try {
-      await save(file, attachments, name)
+      await save(file, attachments, name, enableDownload, onSave)
     } catch (e) {
       console.log(e)
     } finally {

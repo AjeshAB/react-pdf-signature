@@ -14,7 +14,13 @@ export const getPDFPages = async (file: string) => {
   }
 }
 
-export const save = async (pdfFile: string, objects: Attachments[], name: string) => {
+export const save = async (
+  pdfFile: string,
+  objects: Attachments[],
+  name: string,
+  enableDownload?: boolean,
+  onSave?: (file: File, name: string) => void
+) => {
   let pdfDoc
 
   try {
@@ -60,7 +66,9 @@ export const save = async (pdfFile: string, objects: Attachments[], name: string
 
   try {
     const pdfBytes = await pdfDoc.save()
-    download(pdfBytes, name, 'application/pdf')
+    console.log('PDF saved.', pdfBytes)
+    if (enableDownload) download(pdfBytes, name, 'application/pdf')
+    if (onSave) onSave(new File([pdfBytes], name, { type: 'application/pdf' }), name)
   } catch (e) {
     console.log('Failed to save PDF.')
     throw e

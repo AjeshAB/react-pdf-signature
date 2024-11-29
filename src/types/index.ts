@@ -1,7 +1,8 @@
 export type PdfEditorProps = {
-  initialPage?: ((totalPages: number) => number) | number
-  file: string,
+  file: string
   fileName: string
+  enableDownload?: boolean
+  onSave?: (file: File, name: string) => void
 }
 
 export type ChildrenProps = {

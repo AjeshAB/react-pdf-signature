@@ -28,7 +28,7 @@ const PdfEditor = (props: PdfEditorProps): JSX.Element => {
     savePdf,
     isOpen,
     handlePopup
-  } = usePdf()
+  } = usePdf(props)
 
   const {
     add: addAttachment,

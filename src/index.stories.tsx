@@ -19,6 +19,9 @@ type Story = StoryObj<typeof meta> &
 export const Default: Story = {
   args: {
     file: 'https://cdn.filestackcontent.com/wcrjf9qPTCKXV3hMXDwK',
-    fileName: 'dummy.pdf'
+    fileName: 'dummy.pdf',
+    onSave(file, name) {
+      console.log(file, name)
+    }
   }
 }
