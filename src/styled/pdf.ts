@@ -7,7 +7,7 @@ export const StyledPDFPageDiv = styled.div`
 `
 export const StyledPDFPage = styled.section`
   position: relative;
-  max-width: 43.875rem;
+  min-width: 43.875rem;
   display: flex;
   align-items: center;
   flex-direction: column;
