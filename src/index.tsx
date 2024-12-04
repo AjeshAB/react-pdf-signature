@@ -1,6 +1,6 @@
 import { Fragment } from 'react/jsx-runtime'
 import { Attachments } from './components/attachments/attachments'
-import { StyledPDFPageDiv } from './styled/pdf'
+import { StyledPDFPage, StyledPDFPageDiv } from './styled/pdf'
 import { PdfEditorProps } from './types'
 import { usePdf } from './hooks/usePDF'
 import { useAttachments } from './hooks/useAttachments'
@@ -10,6 +10,7 @@ import { useEffect, useLayoutEffect, useRef, useState } from 'react'
 import { getPDFPages } from './utils/pdf'
 import PopUpModal from './components/popup/popup'
 import SignaturePad from './components/signaturePad/signaturePad'
+import PDFSignActionButton from './components/actionButton/actionButton'
 
 const PdfEditor = (props: PdfEditorProps): JSX.Element => {
   const { file: PDFFile, fileName } = props
@@ -81,17 +82,18 @@ const PdfEditor = (props: PdfEditorProps): JSX.Element => {
         isLastPage={isLastPage}
         nextPage={nextPage}
         previousPage={previousPage}
-        add={addAttachment}
-        onSave={handleSave}
-        openSignaturePad={handlePopup}
       />
     )
   }
 
+  const renderActionButtons = () => {
+    return <PDFSignActionButton add={addAttachment} onSave={handleSave} openSignaturePad={handlePopup} />
+  }
+
   return (
     <Fragment>
-      <section className='pdf-editor'>
-        {renderNavigation()}
+      <StyledPDFPage className='pdf-editor'>
+        {renderActionButtons()}
         <StyledPDFPageDiv className='pdf-editor-page' ref={containerRef}>
           <Page
             page={currentPage}
@@ -103,8 +105,14 @@ const PdfEditor = (props: PdfEditorProps): JSX.Element => {
           />
           {renderAttachments()}
         </StyledPDFPageDiv>
-      </section>
-      <PopUpModal isOpen={isOpen} onClose={handlePopup} title='Signature Pad'>
+        {renderNavigation()}
+      </StyledPDFPage>
+      <PopUpModal
+        isOpen={isOpen}
+        onClose={handlePopup}
+        title='Signature Pad'
+        className='pdf-editor-signature-pad-modal'
+      >
         <SignaturePad onClose={handlePopup} onSave={addAttachment} />
       </PopUpModal>
     </Fragment>

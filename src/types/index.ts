@@ -3,6 +3,7 @@ export type PdfEditorProps = {
   fileName: string
   enableDownload?: boolean
   onSave?: (file: File, name: string) => void
+  
 }
 
 export type ChildrenProps = {

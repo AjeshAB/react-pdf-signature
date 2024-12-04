@@ -7,16 +7,17 @@ type PopUpModalProps = {
   onClose: () => void
   title?: string
   children: React.ReactNode
+  className?: string
 }
 const PopUpModal = (props: PopUpModalProps): JSX.Element => {
-  const { isOpen, onClose } = props
+  const { isOpen, onClose, title, className, children } = props
   if (!isOpen) return <Fragment />
   return createPortal(
     <Fragment>
-      <Overlay onClick={onClose}>
+      <Overlay className={className} onClick={onClose}>
         <Content onClick={e => e.stopPropagation()}>
-          <Header>{props.title}</Header>
-          {props.children}
+          <Header>{title}</Header>
+          {children}
         </Content>
       </Overlay>
     </Fragment>,

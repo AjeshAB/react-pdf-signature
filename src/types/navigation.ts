@@ -1,13 +1,9 @@
-import { Attachment } from './attachments'
-
 export type PDFViewerNavigationProps = {
-  add: (newAttachment: Attachment) => void
   nextPage: () => void
   previousPage: () => void
   isFirstPage: boolean
-  isLastPage: boolean,
-  onSave: () => void,
-  openSignaturePad: () => void
+  isLastPage: boolean
+
 }
 
 export type PDFViewerNavigationActionType = 'next' | 'previous'
